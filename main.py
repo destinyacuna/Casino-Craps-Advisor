@@ -1,4 +1,4 @@
-from game import roll_dice
+from game import play_round
 
 def greet_player():
     print("Welcome to the Craps Table Simulator!")
@@ -6,16 +6,19 @@ def greet_player():
 def main():
     greet_player()
     bankroll = int(input("To begin enter your starting bankroll: $"))
-    print()
-    print("You are starting with $",bankroll)
-    print()
+    print("\nYou are starting with $",bankroll, "\n")
 
     # Asks the player to begin the roll
-    input("Press Enter to roll the dice...")
-    print()
+    while True:
+        choice = input("Press Enter to roll the dice or -1 to quit...")
 
-    #Roll the dice and store total
-    total = roll_dice()
+        if choice == "-1":
+            break
+        elif choice == "":
+            result = play_round()
+            print("\nRound result:", result, "\n")
+        else:
+            print("Invalid input.")
 
 main()
 
