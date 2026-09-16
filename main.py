@@ -1,16 +1,21 @@
-# This is a sample Python script.
+from game import roll_dice
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+def greet_player():
+    print("Welcome to the Craps Table Simulator!")
 
+def main():
+    greet_player()
+    bankroll = int(input("To begin enter your starting bankroll: $"))
+    print()
+    print("You are starting with $",bankroll)
+    print()
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+    # Asks the player to begin the roll
+    input("Press Enter to roll the dice...")
+    print()
 
+    #Roll the dice and store total
+    total = roll_dice()
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+main()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
