@@ -16,7 +16,6 @@ def main():
             break
         elif choice == "":
             result = play_round()
-            print("\nRound result:", result, "\n")
         else:
             print("Invalid input.")
 

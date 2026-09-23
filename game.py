@@ -14,11 +14,14 @@ def roll_dice():
 
 def check_come_out_roll(total):
     if total in (7,11):
+        print("You win this round!")
         return "win"
     elif total in (2, 3 , 12):
+        print("Craps! You lose the round.")
         return "lose"
     else:
         point = total
+        print(f"The point is now {point}.")
         return point
 
 def play_point_phase(point):
@@ -28,14 +31,17 @@ def play_point_phase(point):
         total = roll_dice()
 
         if total == point:
+            print(f"You hit the point {point}! Pass Line wins.")
             return "win"
         elif total == 7:
+            print("Seven out! Pass Line Loses!")
             return "lose"
 
 def play_round():
     total = roll_dice()
 
     result = check_come_out_roll(total)
+
     if result == "win":
         return "win"
     elif result == "lose":
