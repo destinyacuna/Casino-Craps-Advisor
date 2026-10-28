@@ -10,17 +10,21 @@ def place_pass_line_bet(bankroll, table_minimum):
     while True:
         try:
             bet = int(input(f"Enter Pass Line bet (minimum ${table_minimum})"))
-            break
+
+            if bet < table_minimum:
+                print("Bet is below table minimum.")
+
+            elif bet > bankroll:
+                print("Error. Not enough money!")
+
+            else:
+                return bet
+
         except ValueError:
             print ("Please enter a dollar amount.")
 
-    while bet < table_minimum or bet > bankroll:
-        if bet < table_minimum:
-            print("Bet is below table minimum.")
+def settle_pass_line_bet(bankroll, pass_bet, result):
+    if result == "win":
+        bankroll = bankroll + (pass_bet * 2)
 
-        elif bankroll > bet:
-            print("Error. Not enough money!")
-
-        bet = int(input("Enter a valid bet $"))
-
-    return bet
+    return bankroll
